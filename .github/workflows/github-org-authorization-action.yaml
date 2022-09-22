@@ -1,0 +1,28 @@
+name: Organization Authorization Action
+
+on:
+  workflow_dispatch:
+
+jobs:
+  github-authorization-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Get authorization report
+        uses: nicklegan/github-org-authorization-action@v2.2.0
+        with:
+          token: ${{ secrets.ORG_TOKEN }}
+        # org: ''
+        # app-sort: 'install_id'
+        # app-sort-order: 'desc'
+        # ssh-sort: 'credential_authorized_at'
+        # ssh-sort-order: 'desc'
+        # pat-sort: 'credential_authorized_at'
+        # pat-sort-order: 'desc'
+        # deploy-keys-sort: 'date'
+        # deploy-keys-sort-order: 'desc'
+        # json: 'false'
+        # actor: 'false'
